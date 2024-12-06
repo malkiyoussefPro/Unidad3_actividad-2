@@ -1,0 +1,184 @@
+// Import des variables
+@import 'variables';
+
+// Accessibility Menu Styles
+.accessibility-toggle-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: $color-bg-primary;
+    color: $color-text-primary;
+    border: 2px solid $color-text-secondary;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: $color-hover;
+        border-color: $color-text-primary;
+    }
+
+    i {
+        font-size: 1.5rem;
+    }
+}
+
+.accessibility-menu {
+    position: fixed;
+    top: 50%;
+    right: -300px;
+    transform: translateY(-50%);
+    background-color: $color-bg-primary;
+    color: $color-text-primary;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 280px;
+    transition: right 0.3s ease;
+
+    &.show {
+        right: 1rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $color-text-primary;
+
+        .close-btn {
+            cursor: pointer;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            color: $color-text-secondary;
+            &:hover {
+                color: $color-hover;
+            }
+        }
+    }
+
+    .accessibility-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .option-group {
+            border-bottom: 1px solid $color-hover;
+            padding-bottom: 1rem;
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            h3 {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                color: $color-text-secondary;
+            }
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: 1px solid $color-text-secondary;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: transparent;
+            color: $color-text-primary;
+
+            &:hover {
+                background-color: $color-bg-secondary;
+                border-color: $color-text-primary;
+            }
+
+            &.active {
+                background-color: $color-bg-tertiary;
+                color: $color-text-primary;
+                border-color: $color-text-primary;
+            }
+        }
+
+        .font-controls, .spacing-controls, .contrast-controls {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// Font size classes
+.font-size-small {
+    font-size: 0.875rem !important;
+}
+
+.font-size-medium {
+    font-size: 1rem !important;
+}
+
+.font-size-large {
+    font-size: 1.25rem !important;
+}
+
+// Line height classes
+.line-height-normal {
+    line-height: 1.5 !important;
+}
+
+.line-height-large {
+    line-height: 2 !important;
+}
+
+// Word spacing classes
+.word-spacing-normal {
+    word-spacing: normal !important;
+}
+
+.word-spacing-large {
+    word-spacing: 0.25em !important;
+}
+
+// Letter spacing classes
+.letter-spacing-normal {
+    letter-spacing: normal !important;
+}
+
+.letter-spacing-large {
+    letter-spacing: 0.05em !important;
+}
+
+// Contrast modes
+.contrast-normal {
+    filter: none !important;
+}
+
+.contrast-dark {
+    filter: invert(1) hue-rotate(180deg) !important;
+}
+
+.contrast-light {
+    filter: brightness(1.2) contrast(0.8) !important;
+}
+
+.grayscale {
+    filter: grayscale(100%) !important;
+}
+
+.high-saturation {
+    filter: saturate(150%) !important;
+}
+
+.low-saturation {
+    filter: saturate(50%) !important;
+}

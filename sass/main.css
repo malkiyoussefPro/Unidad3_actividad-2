@@ -1,3 +1,166 @@
+.accessibility-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: #101540;
+  color: #E9F2EF;
+  border: 2px solid #ececec;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.accessibility-toggle-btn:hover {
+  transform: scale(1.1);
+  background-color: #7E7F9A;
+  border-color: #E9F2EF;
+}
+.accessibility-toggle-btn i {
+  font-size: 1.5rem;
+}
+
+.accessibility-menu {
+  position: fixed;
+  top: 50%;
+  right: -300px;
+  transform: translateY(-50%);
+  background-color: #101540;
+  color: #E9F2EF;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 280px;
+  transition: right 0.3s ease;
+}
+.accessibility-menu.show {
+  right: 1rem;
+}
+.accessibility-menu h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #E9F2EF;
+}
+.accessibility-menu h2 .close-btn {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: #ececec;
+}
+.accessibility-menu h2 .close-btn:hover {
+  color: #7E7F9A;
+}
+.accessibility-menu .accessibility-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.accessibility-menu .accessibility-options .option-group {
+  border-bottom: 1px solid #7E7F9A;
+  padding-bottom: 1rem;
+}
+.accessibility-menu .accessibility-options .option-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.accessibility-menu .accessibility-options .option-group h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #ececec;
+}
+.accessibility-menu .accessibility-options button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ececec;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: transparent;
+  color: #E9F2EF;
+}
+.accessibility-menu .accessibility-options button:hover {
+  background-color: #700000;
+  border-color: #E9F2EF;
+}
+.accessibility-menu .accessibility-options button.active {
+  background-color: #870000;
+  color: #E9F2EF;
+  border-color: #E9F2EF;
+}
+.accessibility-menu .accessibility-options .font-controls, .accessibility-menu .accessibility-options .spacing-controls, .accessibility-menu .accessibility-options .contrast-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.font-size-small {
+  font-size: 0.875rem !important;
+}
+
+.font-size-medium {
+  font-size: 1rem !important;
+}
+
+.font-size-large {
+  font-size: 1.25rem !important;
+}
+
+.line-height-normal {
+  line-height: 1.5 !important;
+}
+
+.line-height-large {
+  line-height: 2 !important;
+}
+
+.word-spacing-normal {
+  word-spacing: normal !important;
+}
+
+.word-spacing-large {
+  word-spacing: 0.25em !important;
+}
+
+.letter-spacing-normal {
+  letter-spacing: normal !important;
+}
+
+.letter-spacing-large {
+  letter-spacing: 0.05em !important;
+}
+
+.contrast-normal {
+  filter: none !important;
+}
+
+.contrast-dark {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+.contrast-light {
+  filter: brightness(1.2) contrast(0.8) !important;
+}
+
+.grayscale {
+  filter: grayscale(100%) !important;
+}
+
+.high-saturation {
+  filter: saturate(150%) !important;
+}
+
+.low-saturation {
+  filter: saturate(50%) !important;
+}
+
 * {
   margin: 0;
   padding: 0;

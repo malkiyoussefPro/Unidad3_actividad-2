@@ -1,0 +1,243 @@
+/* Bouton flottant */
+.accessibility-toggle-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #101540 0%, #700000 100%);
+    color: #E9F2EF;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+}
+
+.accessibility-toggle-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #700000 0%, #101540 100%);
+}
+
+.accessibility-toggle-btn i {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.accessibility-toggle-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Menu d'accessibilité */
+.accessibility-menu {
+    position: fixed;
+    top: 50%;
+    right: -350px;
+    transform: translateY(-50%);
+    background: rgba(16, 21, 64, 0.95);
+    color: #E9F2EF;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 320px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(236, 236, 236, 0.1);
+}
+
+.accessibility-menu.show {
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.accessibility-menu h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #E9F2EF;
+    border-bottom: 2px solid #700000;
+    padding-bottom: 0.8rem;
+}
+
+.accessibility-menu .close-btn {
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #ececec;
+    transition: all 0.3s ease;
+}
+
+.accessibility-menu .close-btn:hover {
+    color: #700000;
+    transform: rotate(90deg);
+}
+
+.accessibility-menu .accessibility-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.accessibility-menu .option-group {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(236, 236, 236, 0.1);
+}
+
+.accessibility-menu .option-group h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ececec;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.accessibility-menu button {
+    padding: 0.7rem 1.2rem;
+    border: 1px solid rgba(236, 236, 236, 0.2);
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    color: #E9F2EF;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.accessibility-menu button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.accessibility-menu button:hover:before {
+    left: 100%;
+}
+
+.accessibility-menu button:hover {
+    background: #700000;
+    border-color: #E9F2EF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.accessibility-menu button.active {
+    background: #870000;
+    color: #E9F2EF;
+    border-color: #E9F2EF;
+    box-shadow: 0 2px 8px rgba(135, 0, 0, 0.3);
+}
+
+.accessibility-menu .font-controls,
+.accessibility-menu .spacing-controls,
+.accessibility-menu .contrast-controls {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+/* Ajout d'icônes pour chaque section */
+.accessibility-menu .option-group h3:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 8px;
+}
+
+.accessibility-menu .option-group:nth-child(1) h3:before {
+    font: var(--fa-font-solid);
+    content: "\f034"; /* fa-text-height */
+}
+
+.accessibility-menu .option-group:nth-child(2) h3:before {
+    font: var(--fa-font-solid);
+    content: "\f1dd"; /* fa-paragraph */
+}
+
+.accessibility-menu .option-group:nth-child(3) h3:before {
+    font: var(--fa-font-solid);
+    content: "\f53f"; /* fa-palette */
+}
+
+/* Classes pour les modifications de texte */
+.font-size-small {
+    font-size: 14px !important;
+}
+
+.font-size-medium {
+    font-size: 16px !important;
+}
+
+.font-size-large {
+    font-size: 20px !important;
+}
+
+/* S'assurer que tous les éléments héritent de la taille */
+.font-size-small *, .font-size-medium *, .font-size-large * {
+    font-size: inherit !important;
+}
+
+/* Ajuster les titres proportionnellement */
+.font-size-small h1 { font-size: 24px !important; }
+.font-size-small h2 { font-size: 20px !important; }
+.font-size-small h3 { font-size: 18px !important; }
+
+.font-size-medium h1 { font-size: 28px !important; }
+.font-size-medium h2 { font-size: 24px !important; }
+.font-size-medium h3 { font-size: 20px !important; }
+
+.font-size-large h1 { font-size: 36px !important; }
+.font-size-large h2 { font-size: 30px !important; }
+.font-size-large h3 { font-size: 26px !important; }
+
+.line-height-normal { line-height: 1.5 !important; }
+.line-height-large { line-height: 2 !important; }
+.word-spacing-normal { word-spacing: normal !important; }
+.word-spacing-large { word-spacing: 0.25em !important; }
+.letter-spacing-normal { letter-spacing: normal !important; }
+.letter-spacing-large { letter-spacing: 0.05em !important; }
+
+/* Filtres de contraste */
+.contrast-normal { filter: none !important; }
+.contrast-dark { filter: invert(1) hue-rotate(180deg) !important; }
+.contrast-light { filter: brightness(1.2) contrast(0.8) !important; }
+.grayscale { filter: grayscale(100%) !important; }
+.high-saturation { filter: saturate(150%) !important; }
+.low-saturation { filter: saturate(50%) !important; }
+
+/* Animation d'entrée */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px) translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(-50%);
+    }
+}
+
+.accessibility-menu.show {
+    animation: slideIn 0.4s ease forwards;
+}
