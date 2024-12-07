@@ -55,4 +55,24 @@ window.currentSlide_carousel2 = 0;
 showSlide(window.currentSlide_carousel1, 'carousel1');
 showSlide(window.currentSlide_carousel2, 'carousel2');
 
+// Noticias
+document.querySelectorAll('.toggle-btn').forEach(button => {
+    button.addEventListener('click', function () {
+    const extraText = this.previousElementSibling; 
 
+    // Alternar la clase "hidden"
+    extraText.classList.toggle('hidden');
+
+    // Cambiar el texto y el fondo del botón
+    if (extraText.classList.contains('hidden')) {
+        this.textContent = 'Ver más';
+        this.classList.remove('bg-bg-tertiary');
+        this.classList.add('bg-bg-primary');
+        this.classList.add('text-justify');
+    } else {
+        this.textContent = 'Ver menos';
+        this.classList.remove('bg-bg-primary');
+        this.classList.add('bg-bg-tertiary');
+    }
+});
+});
