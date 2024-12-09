@@ -140,7 +140,7 @@ p b{
     align-items: center;
 }
 
-.btn-verProyect button {
+.btn-verProyect a button {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     padding: 10px 20px;
@@ -152,7 +152,7 @@ p b{
     position: relative;
     top: 50px;
   }
-  .btn-verProyect button:hover {
+  .btn-verProyect a button:hover {
     background-color: var(--color-text-primary);
     color: var(--color-bg-primary);
     border:2px solid var(--color-bg-primary);
@@ -166,8 +166,8 @@ p b{
         display: flex;
         flex-direction: column;
         width: 100%;
-        max-width: 600px;
-        height: auto;
+        max-width: auto;
+        height: 200px;
         overflow: hidden;
         border: 2px solid var(--color-bg-primary);
         border-radius: 10px;
@@ -197,10 +197,10 @@ p b{
     transition: background-color 0.3s ease;
 
   }
-  .btn-verProyect button:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
-    border:2px solid var(--color-bg-primary);
+  .btn-verProyect button {
+     margin-bottom:60px;
+     width:100px;
+     height:50px;
   }
- 
+
 }

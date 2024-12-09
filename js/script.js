@@ -1,13 +1,45 @@
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const navElements = document.querySelector(".elements");
+
+hamburgerIcon.addEventListener("click", () => navElements.classList.toggle("show"));
+
+
+
+function showSlide(slideIndex, carouselId) {
+    const carousel = document.querySelector(`#${carouselId} .carousel`);
+    const slides = carousel.querySelectorAll('img');
+    const totalSlides = slides.length;
+
+    slideIndex = (slideIndex + totalSlides) % totalSlides;
+
+    const offset = -slideIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+    return slideIndex;
+}
+
+// Función para mover el slide
+function moveSlide(step, carouselId) {
+    const currentSlideKey = `currentSlide_${carouselId}`;
+    window[currentSlideKey] = showSlide((window[currentSlideKey] || 0) + step, carouselId);
+}
+
+// Inicializar los sliders
+window.currentSlide_carousel1 = 0;
+window.currentSlide_carousel2 = 0;
+
+showSlide(window.currentSlide_carousel1, 'carousel1');
+showSlide(window.currentSlide_carousel2, 'carousel2');
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerIcon = document.getElementById("hamburger-icon");
-    const navElements = document.querySelector(".elements");
+   
     const popup = document.getElementById("imagePopup");
     const popupImg = document.getElementById("popupImg");
     const imageTitle = document.getElementById("imageTitle");
     const imageAuthor = document.getElementById("imageAuthor");
     const overlay = document.getElementById("overlay");
-
-    hamburgerIcon.addEventListener("click", () => navElements.classList.toggle("show"));
 
     function togglePopup(display, img = null) {
         popup.style.display = overlay.style.display = display;
@@ -21,58 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.openPopup = img => togglePopup("block", img);
     window.closePopup = () => togglePopup("none");
+
 });
-// Función para mostrar el slide 
-function showSlide(slideIndex, carouselId) {
-    const carousel = document.querySelector(`#${carouselId} .carousel`);
-    const slides = carousel.querySelectorAll('img');
-    const totalSlides = slides.length;
 
-    if (slideIndex >= totalSlides) {
-        slideIndex = 0;
-    } else if (slideIndex < 0) {
-        slideIndex = totalSlides - 1;
-    }
 
-    const offset = -slideIndex * 100;
-    carousel.style.transform = `translateX(${offset}%)`;
-    return slideIndex;
-}
-
-// Función para mover el slide
-function moveSlide(step, carouselId) {
-    const currentSlide = window[`currentSlide_${carouselId}`] || 0;  
-    const newSlide = showSlide(currentSlide + step, carouselId);
-
-    // Actualizar el índice del slide actual
-    window[`currentSlide_${carouselId}`] = newSlide;
-}
-
-// Inicializar los sliders
-window.currentSlide_carousel1 = 0;
-window.currentSlide_carousel2 = 0;
-
-showSlide(window.currentSlide_carousel1, 'carousel1');
-showSlide(window.currentSlide_carousel2, 'carousel2');
-
-// Noticias
-document.querySelectorAll('.toggle-btn').forEach(button => {
-    button.addEventListener('click', function () {
-    const extraText = this.previousElementSibling; 
-
-    // Alternar la clase "hidden"
-    extraText.classList.toggle('hidden');
-
-    // Cambiar el texto y el fondo del botón
-    if (extraText.classList.contains('hidden')) {
-        this.textContent = 'Ver más';
-        this.classList.remove('bg-bg-tertiary');
-        this.classList.add('bg-bg-primary');
-        this.classList.add('text-justify');
-    } else {
-        this.textContent = 'Ver menos';
-        this.classList.remove('bg-bg-primary');
-        this.classList.add('bg-bg-tertiary');
-    }
-});
-});

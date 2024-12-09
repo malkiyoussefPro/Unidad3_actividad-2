@@ -138,7 +138,38 @@
         </div>
     </footer>
 
-    <!-- Script Js-->
+     <!-- Script Js externo-->
+    <script>
+            function showSlide(slideIndex, carouselId) {
+        const carousel = document.querySelector(`#${carouselId} .carousel`);
+        const slides = carousel.querySelectorAll('img');
+        const totalSlides = slides.length;
+
+        slideIndex = (slideIndex + totalSlides) % totalSlides;
+
+        const offset = -slideIndex * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+        return slideIndex;
+    }
+
+    // Función para mover el slide
+    function moveSlide(step, carouselId) {
+        const currentSlideKey = `currentSlide_${carouselId}`;
+        window[currentSlideKey] = showSlide((window[currentSlideKey] || 0) + step, carouselId);
+    }
+
+    // Inicializar los sliders
+    window.currentSlide_carousel1 = 0;
+    window.currentSlide_carousel2 = 0;
+
+    showSlide(window.currentSlide_carousel1, 'carousel1');
+    showSlide(window.currentSlide_carousel2, 'carousel2');
+
+
+
+    </script>
+
+    <!-- Script Js externo-->
 
         <script src="/js/script.js"></script>
         <script src="/js/accessibility.js"></script>
